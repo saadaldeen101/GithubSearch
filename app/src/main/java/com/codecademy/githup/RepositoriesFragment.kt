@@ -40,8 +40,7 @@ class RepositoriesFragment() : Fragment() {
         recyclerView.adapter = adapter
 
         viewModel.repositories.observe(viewLifecycleOwner) {
-            adapter.repositories = it
-            adapter.notifyDataSetChanged()
+            adapter.submitList(it)
         }
 
         val progressBar: ProgressBar = view.findViewById(R.id.progressBar)
